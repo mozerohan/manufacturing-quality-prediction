@@ -96,6 +96,41 @@ Interactive documentation is available at `/docs` when the service is running.
 
 The prediction response contains the predicted class and model-estimated class probabilities. These probabilities may not be calibrated and should not be interpreted as guarantees.
 
+
+### Example Prediction Request
+
+Use the following sample input to test the `POST /predict` endpoint in Swagger UI.
+
+**Sample input (JSON):**
+
+```json
+{
+  "Rated_Power_VA": 500,
+  "Input_Voltage_V": 230,
+  "Winding_Time_Min": 45,
+  "Assembly_Time_Min": 30,
+  "Core_Weight_Kg": 2.5,
+  "Copper_Weight_Kg": 1.2,
+  "Winding_Temperature_C": 65,
+  "Product_Type": "Control Transformer",
+  "Production_Line": "Line A",
+  "Shift": "Day"
+}
+```
+
+**How to test:**
+
+1. Start the API locally or run the Docker container.
+2. Open [http://localhost:8000/docs](http://localhost:8000/docs).
+3. Expand `POST /predict`.
+4. Click **Try it out**.
+5. Paste the JSON example into the request body.
+6. Click **Execute** to view the response.
+
+The response includes the predicted inspection class (`Pass` or `Fail`) and the model-estimated probabilities for each class.
+
+
+
 ## Run Locally
 
 Create and activate a virtual environment, then install dependencies from the project root:
